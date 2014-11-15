@@ -9,20 +9,18 @@ function start() {
 
   // Create table.
   var table = document.createElement('table');
-  
+  table.setAttribute("border","1px");
+  var btn = document.createElement("BUTTON");
+  btn.type = "button";
+  var row1;
+  var row1col1;
   for(var i = 0; i < row.value; i++){
+    // Insert New Row for table at index 'i'.
+      row1 = table.insertRow(i);
     for(var j = 0; j < col.value; j++){
-    // Insert New Row for table at index '0'.
-    var row1 = table.insertRow(0);
-    // Insert New Column for Row1 at index '0'.
-    var row1col1 = row1.insertCell(0);
-    row1col1.innerHTML = row.value;
-    // Insert New Column for Row1 at index '1'.
-    var row1col2 = row1.insertCell(1);
-    row1col2.innerHTML = col.value;
-    // Insert New Column for Row1 at index '2'.
-    var row1col3 = row1.insertCell(2);
-    row1col3.innerHTML = 'Col3';
+      // Insert New Column for Row1 at index '0'.
+      row1col1 = row1.insertCell(j);
+      row1col1.innerHTML = "row";
     }
   }
     // Append Table into div.
