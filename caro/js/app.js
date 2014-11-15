@@ -23,11 +23,15 @@ function start() {
       row1col1.setAttribute("width", "10px");
       row1col1.setAttribute("height", "10px");
       row1col1.onclick = function () {
-            alert("pop");
-        };
+            clickBox();
+      };
     }
   }
     // Append Table into div.
     var div = document.getElementById('cr_table');
     div.appendChild(table);
+}
+
+function clickBox(){
+  alert("pop");
 }
