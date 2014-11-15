@@ -20,17 +20,14 @@ function start() {
     for(var j = 0; j < col.value; j++){
       // Insert New Column for Row1 at index '0'.
       row1col1 = row1.insertCell(j);
-      row1col1.innerHTML = "__";
+      row1col1.setAttribute("width", "10px");
+      row1col1.setAttribute("height", "10px");
+      row1col1.onclick = function () {
+            alert("pop");
+        };
     }
   }
     // Append Table into div.
     var div = document.getElementById('cr_table');
     div.appendChild(table);
-  
-  for (var i = 0; i < table.rows.length; i++) {
-        for (var j = 0; j < table.rows[i].cells.length; j++)
-        table.rows[i].cells[j].onclick = function () {
-            alert("pop");
-        };
-  }
 }
