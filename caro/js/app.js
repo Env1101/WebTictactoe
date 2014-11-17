@@ -1,12 +1,15 @@
+
 function start() {
   var row = document.getElementById('row');
   var col = document.getElementById('col');
   var div = document.getElementById('cr_table');
+  var toggle = 0;
   
     // Create table.
   var table = document.createElement('table');
   table.setAttribute("border","1px");
   table.setAttribute("style", "border-collapse: collapse");
+  table.setAttribute("id", "myTable");
   //table.setAttribute("align", "center");
   //var btn = document.createElement("BUTTON");
   //btn.type = "button";
@@ -32,9 +35,15 @@ function start() {
       row1col1.setAttribute("width", "20px");
       row1col1.setAttribute("height", "20px");
       row1col1.setAttribute("align", "center");
+      
       row1col1.onclick = function () {
-          //table.rows[i].cols[j].innerHTML = "X";
-          alert(i);
+        if(toggle == 0){  
+          this.innerHTML = "X";
+          toggle = 1;
+        } else {
+          this.innerHTML = "O";
+          toggle = 0;
+        }
       };
     }
   }

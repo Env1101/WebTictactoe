@@ -36,7 +36,21 @@
         own language (as long as you provide translations).
         -->
         <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
-        <script type="text/javascript" src="js/libs/l10n.js" defer></script>
+<!--         <script type="text/javascript" src="js/libs/l10n.js" defer></script>
+        
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script>
+                    $(document).ready(function(){
+                            $("#myTable td").click(function() {     
+
+                                    var column_num = parseInt( $(this).index() ) + 1;
+                                    var row_num = parseInt( $(this).parent().index() )+1;    
+
+                                    $("#result").html( "Row_num =" + row_num + "  ,  Rolumn_num ="+ column_num );   
+                            });
+                    });
+            </script> -->
+        
     </head>
     <body>
 
@@ -48,6 +62,8 @@
               <br><br>
            </div>
 
+           <div id="result"> </div>
+                
            <div id="cr_table">
            </div>
         </form>
