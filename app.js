@@ -1,40 +1,40 @@
-<<<<<<< HEAD
-=======
-var matrix;
+// //<<<<<<< HEAD
+// //=======
+// var matrix;
 
-function hasWon(x, y) {
-  var val = matrix[y][x];
-  var sur = [[0,1,0],[0,-1,0],[1,1,0],[-1,-1,0],[1,0,0],[-1,0,0],[1,-1,0],[-1,1,0]];
-  for (i = 0; i < 8; i++) {
-    var j = 1;
-    while (checkBound(y+j*sur[i][0],x+j*sur[i][1]) && matrix[y+j*sur[i][0]][x+j*sur[i][1]] == val) {
-      j++;
-      sur[i][2]++;
-    }
-    if (i%2 == 1) {
-      if (sur[i][2]+sur[i-1][2]+1 >= 5) {
-        if (sur[i][2]+sur[i-1][2]+1==5 && 
-            checkBound(y+(1+sur[i][2])*sur[i][0],x+(1+sur[i][2])*sur[i][1]) && 
-            checkBound(y+(1+sur[i-1][2])*sur[i-1][0],x+(1+sur[i-1][2])*sur[i-1][1]) && 
-            matrix[y+(1+sur[i][2])*sur[i][0]][x+(1+sur[i][2])*sur[i][1]]==(val*-1) && 
-            matrix[y+(1+sur[i-1][2])*sur[i-1][0]][x+(1+sur[i-1][2])*sur[i-1][1]]==(val*-1)) {
-          return false;
-        }
-        return true;
-      }
-    }
-  }
-  return false;
-} 
+// function hasWon(x, y) {
+//   var val = matrix[y][x];
+//   var sur = [[0,1,0],[0,-1,0],[1,1,0],[-1,-1,0],[1,0,0],[-1,0,0],[1,-1,0],[-1,1,0]];
+//   for (i = 0; i < 8; i++) {
+//     var j = 1;
+//     while (checkBound(y+j*sur[i][0],x+j*sur[i][1]) && matrix[y+j*sur[i][0]][x+j*sur[i][1]] == val) {
+//       j++;
+//       sur[i][2]++;
+//     }
+//     if (i%2 == 1) {
+//       if (sur[i][2]+sur[i-1][2]+1 >= 5) {
+//         if (sur[i][2]+sur[i-1][2]+1==5 && 
+//             checkBound(y+(1+sur[i][2])*sur[i][0],x+(1+sur[i][2])*sur[i][1]) && 
+//             checkBound(y+(1+sur[i-1][2])*sur[i-1][0],x+(1+sur[i-1][2])*sur[i-1][1]) && 
+//             matrix[y+(1+sur[i][2])*sur[i][0]][x+(1+sur[i][2])*sur[i][1]]==(val*-1) && 
+//             matrix[y+(1+sur[i-1][2])*sur[i-1][0]][x+(1+sur[i-1][2])*sur[i-1][1]]==(val*-1)) {
+//           return false;
+//         }
+//         return true;
+//       }
+//     }
+//   }
+//   return false;
+// } 
 
-function checkBound(y,x) {
-  if (y>=0 && y<matrix.length && x>=0 && x<matrix[0].length) {
-    return true;
-  }
-  return false;
-}
+// function checkBound(y,x) {
+//   if (y>=0 && y<matrix.length && x>=0 && x<matrix[0].length) {
+//     return true;
+//   }
+//   return false;
+// }
 
->>>>>>> 1059597018a1882f8dd8203e64e3a2b306ec38d7
+// //>>>>>>> 1059597018a1882f8dd8203e64e3a2b306ec38d7
 function start() {
   var row = document.getElementById('row');
   var col = document.getElementById('col');
@@ -85,18 +85,19 @@ function start() {
           toggle = 0;
           matrix[y][x] = -1;
         }
-<<<<<<< HEAD
-        
         //alert( this.title + " " + this.id);
       };
-=======
 
-        if (hasWon(x, y) == true) {
-          alert('You Won');
-        }
+//         if (hasWon(x, y) == true) {
+//           alert('You Won');
+//         }
       }
->>>>>>> 1059597018a1882f8dd8203e64e3a2b306ec38d7
+
     }
-  }
   div.appendChild(table);
+}
+
+function won(row, col, x, y){
+  
+  return false;
 }
