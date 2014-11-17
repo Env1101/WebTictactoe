@@ -1,4 +1,3 @@
-
 function start() {
   var row = document.getElementById('row');
   var col = document.getElementById('col');
@@ -38,6 +37,7 @@ function start() {
       row1col1.setAttribute("height", "20px");
       row1col1.setAttribute("align", "center");
       row1col1.setAttribute("id", j.toString());
+      //row1col1.setAttribute("title", i.toString());
       
       row1col1.onclick = function () {
         if(toggle == 0){  
@@ -48,7 +48,7 @@ function start() {
           toggle = 0;
         }
         
-        alert();
+        //alert( this.title + " " + this.id);
       };
     }
   }
