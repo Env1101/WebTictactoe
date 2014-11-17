@@ -1,9 +1,12 @@
 var matrix;
+var rows;
+var cols;
 
 function hasWon(x, y) {
   var val = matrix[y][x];
   var sur = [[0,1,0],[0,-1,0],[1,1,0],[-1,-1,0],[1,0,0],[-1,0,0],[1,-1,0],[-1,1,0]];
-  for (i = 0; i < 8; i++) {
+
+  for (var i = 0; i < 8; i++) {
     var j = 1;
     while (checkBound(y+j*sur[i][0],x+j*sur[i][1]) && matrix[y+j*sur[i][0]][x+j*sur[i][1]] == val) {
       j++;
@@ -26,7 +29,7 @@ function hasWon(x, y) {
 } 
 
 function checkBound(y,x) {
-  if (y>=0 && y<matrix.length && x>=0 && x<matrix[0].length) {
+  if (y>=0 && y<rows && x>=0 && x<cols) {
     return true;
   }
   return false;
@@ -37,11 +40,17 @@ function start() {
   var col = document.getElementById('col');
   var div = document.getElementById('cr_table');
   var toggle = 0;
+  cols = col.value;
+  rows = row.value;
+
   matrix = new Array(row.value);
   for (var i = 0; i < row.value; i++) {
     matrix[i] = new Array(col.value);
+    for (var j = 0; j < col.value; j++) {
+      matrix[i][j] = 0;
+    }
   }
-
+  
   // Create table.
   var table = document.createElement('table');
   table.setAttribute("border","1px");
