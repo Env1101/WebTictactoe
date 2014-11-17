@@ -9,7 +9,7 @@ function start() {
   var table = document.createElement('table');
   table.setAttribute("border","1px");
   table.setAttribute("style", "border-collapse: collapse");
-  table.setAttribute("id", "myTable");
+  //table.setAttribute("id", "myTable");
   //table.setAttribute("align", "center");
   //var btn = document.createElement("BUTTON");
   //btn.type = "button";
@@ -24,17 +24,20 @@ function start() {
   //message.textContent = translate('message');
   var row1;
   var row1col1;
-  var ops = 0;
+  var cell_id;
  
   for(var i = 0; i < row.value; i++){
     // Insert New Row for table at index 'i'.
       row1 = table.insertRow(i);
+      row1.setAttribute("id", i.toString());
+    
     for(var j = 0; j < col.value; j++){
       // Insert New Column for Row1 at index '0'.
       row1col1 = row1.insertCell(j);
       row1col1.setAttribute("width", "20px");
       row1col1.setAttribute("height", "20px");
       row1col1.setAttribute("align", "center");
+      row1col1.setAttribute("id", j.toString());
       
       row1col1.onclick = function () {
         if(toggle == 0){  
@@ -44,6 +47,8 @@ function start() {
           this.innerHTML = "O";
           toggle = 0;
         }
+        
+        alert();
       };
     }
   }
