@@ -9,8 +9,7 @@ function hasWon(x, y) {
   for (var i = 0; i < 8; i++) {
     var j = 1;
     while (checkBound(y+j*sur[i][0],x+j*sur[i][1]) && matrix[y+j*sur[i][0]][x+j*sur[i][1]] == val) {
-      j++;
-      sur[i][2]++;
+      j++; sur[i][2]++;
     }
     if (i%2 == 1) {
       if (sur[i][2]+sur[i-1][2]+1 >= 5) {
@@ -79,8 +78,8 @@ function start() {
       row1col1.setAttribute("id", j.toString());
       
       row1col1.onclick = function () {
-        var x = this.id;
-        var y = this.parentNode.id;
+        var x = parseInt(this.id);
+        var y = parseInt(this.parentNode.id);
         if(toggle == 0){  
           this.innerHTML = "X";
           toggle = 1;
