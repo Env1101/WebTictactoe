@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tic Tac Toe</title>
+        <meta name="description" content="Webbase Tic Tac Toe Game">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="app.css">
+        <script type="text/javascript" src="app.js" defer></script>
+    </head>
+    <body>
+        <form id="form1">
+           <div>
+              Row: <input type="number" name="row" min="5" max="50" id="row"/>
+              Column: <input type="number" name="col" min="5" max="50" id="col"/>
+              <input type="button" value="Create Table" onclick="start()"/>
+               <br><br>
+           </div>
+           <div id="cr_table">
+           </div>
+        </form>
+    </body>
+</html>
