@@ -78,10 +78,12 @@ function start() {
         var y = this.parentNode.id;
         if(toggle == 0){  
           this.innerHTML = "X";
+          this.setAttribute("readonly", "readonly");
           toggle = 1;
           matrix[y][x] = 1;
         } else {
           this.innerHTML = "O";
+          this.setAttribute("readonly", "readonly");
           toggle = 0;
           matrix[y][x] = -1;
         }
