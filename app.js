@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // //<<<<<<< HEAD
 // //=======
 // var matrix;
@@ -33,6 +34,43 @@
 //   }
 //   return false;
 // }
+=======
+var matrix;
+var rows;
+var cols;
+
+function hasWon(x, y) {
+  var val = matrix[y][x];
+  var sur = [[0,1,0],[0,-1,0],[1,1,0],[-1,-1,0],[1,0,0],[-1,0,0],[1,-1,0],[-1,1,0]];
+
+  for (var i = 0; i < 8; i++) {
+    var j = 1;
+    while (checkBound(y+j*sur[i][0],x+j*sur[i][1]) && matrix[y+j*sur[i][0]][x+j*sur[i][1]] == val) {
+      j++; sur[i][2]++;
+    }
+    if (i%2 == 1) {
+      if (sur[i][2]+sur[i-1][2]+1 >= 5) {
+        if (sur[i][2]+sur[i-1][2]+1==5 && 
+            checkBound(y+(1+sur[i][2])*sur[i][0],x+(1+sur[i][2])*sur[i][1]) && 
+            checkBound(y+(1+sur[i-1][2])*sur[i-1][0],x+(1+sur[i-1][2])*sur[i-1][1]) && 
+            matrix[y+(1+sur[i][2])*sur[i][0]][x+(1+sur[i][2])*sur[i][1]]==(val*-1) && 
+            matrix[y+(1+sur[i-1][2])*sur[i-1][0]][x+(1+sur[i-1][2])*sur[i-1][1]]==(val*-1)) {
+          return false;
+        }
+        return true;
+      }
+    }
+  }
+  return false;
+} 
+
+function checkBound(y,x) {
+  if (y>=0 && y<rows && x>=0 && x<cols) {
+    return true;
+  }
+  return false;
+}
+>>>>>>> b0e657c1fff62ce91882280d967fa3e7faeb2ba7
 
 // //>>>>>>> 1059597018a1882f8dd8203e64e3a2b306ec38d7
 function start() {
@@ -40,11 +78,17 @@ function start() {
   var col = document.getElementById('col');
   var div = document.getElementById('cr_table');
   var toggle = 0;
+  cols = col.value;
+  rows = row.value;
+
   matrix = new Array(row.value);
   for (var i = 0; i < row.value; i++) {
     matrix[i] = new Array(col.value);
+    for (var j = 0; j < col.value; j++) {
+      matrix[i][j] = 0;
+    }
   }
-
+  
   // Create table.
   var table = document.createElement('table');
   table.setAttribute("border","1px");
@@ -74,8 +118,8 @@ function start() {
       //row1col1.setAttribute("title", i.toString());
       
       row1col1.onclick = function () {
-        var x = this.id;
-        var y = this.parentNode.id;
+        var x = parseInt(this.id);
+        var y = parseInt(this.parentNode.id);
         if(toggle == 0){  
           this.innerHTML = "X";
           this.setAttribute("readonly", "readonly");
@@ -98,8 +142,11 @@ function start() {
     }
   div.appendChild(table);
 }
+<<<<<<< HEAD
 
 function won(row, col, x, y){
   
   return false;
 }
+=======
+>>>>>>> b0e657c1fff62ce91882280d967fa3e7faeb2ba7
